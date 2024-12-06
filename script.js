@@ -1,4 +1,5 @@
 import { verify } from "./modules.js"
+import { save_names } from "./modules.js"
 
 const card_rules = document.getElementById('card-rules')
 const btn_close = document.getElementById('btn-close')
@@ -6,7 +7,6 @@ const btn_rules = document.getElementById('btn-rules')
 const input_player01 = document.getElementById('player01')
 const input_player02 = document.getElementById('player02')
 const btn_play = document.getElementById('btn-play')
-const button_play = document.getElementById('button-play')
 
 console.log(btn_play)
 
@@ -29,3 +29,7 @@ const myinterval = setInterval(()=>{
         clearInterval(myinterval)
     }
 },2000)
+
+btn_play.addEventListener('click',()=>{
+    save_names(input_player01,input_player02)
+})
