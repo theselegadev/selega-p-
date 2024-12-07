@@ -8,7 +8,9 @@ const input_player01 = document.getElementById('player01')
 const input_player02 = document.getElementById('player02')
 const btn_play = document.getElementById('btn-play')
 
-console.log(btn_play)
+document.addEventListener('DOMContentLoaded',()=>{
+    localStorage.clear()
+})
 
 btn_rules.addEventListener('click',()=>{
     card_rules.style.top = "30%"
@@ -23,7 +25,6 @@ setTimeout(()=>{
 },1300)
 
 const myinterval = setInterval(()=>{
-    console.log('setInterval rodando')
     if(verify(input_player01,input_player02)){
         btn_play.style.display = "block"
         clearInterval(myinterval)
