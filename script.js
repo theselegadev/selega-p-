@@ -8,8 +8,12 @@ const input_player01 = document.getElementById('player01')
 const input_player02 = document.getElementById('player02')
 const btn_play = document.getElementById('btn-play')
 
+let close_rules = localStorage.getItem('close_rules')
+
+
 document.addEventListener('DOMContentLoaded',()=>{
     localStorage.clear()
+    localStorage.setItem('close_rules',false)
 })
 
 btn_rules.addEventListener('click',()=>{
@@ -18,10 +22,14 @@ btn_rules.addEventListener('click',()=>{
 
 btn_close.addEventListener('click',()=>{
     card_rules.style.top = "-50%"
+    localStorage.setItem('close_rules',true)
 })
 
 setTimeout(()=>{
-    card_rules.style.top = "30%"
+    if(close_rules == "false"){
+        card_rules.style.top = "30%"
+        close_rules = localStorage.getItem('close_rules')
+    }
 },1300)
 
 const myinterval = setInterval(()=>{
