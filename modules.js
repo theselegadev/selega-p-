@@ -12,3 +12,8 @@ export function save_names(inp1,inp2){
     localStorage.setItem('name_player1',inp1.value)
     localStorage.setItem('name_player2',inp2.value)
 }
+
+export function clear_choices(){
+    localStorage.removeItem('choice_player1')
+    localStorage.removeItem('choice_player2')
+}

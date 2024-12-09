@@ -1,5 +1,4 @@
-import { verify } from "./modules.js"
-import { save_names } from "./modules.js"
+import { verify, save_names, clear_choices } from "./modules.js"
 
 const card_rules = document.getElementById('card-rules')
 const btn_close = document.getElementById('btn-close')
@@ -14,6 +13,7 @@ let close_rules = localStorage.getItem('close_rules')
 document.addEventListener('DOMContentLoaded',()=>{
     localStorage.clear()
     localStorage.setItem('close_rules',false)
+    clear_choices()
 })
 
 btn_rules.addEventListener('click',()=>{

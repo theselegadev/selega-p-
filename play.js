@@ -1,5 +1,6 @@
 class selega_po{
     static play(){
+        manipulation_choice.clear_choices()
         manipulation_choice.show_card()
         manipulation_choice.alter_names()
         manipulation_names.insert_names()
@@ -23,6 +24,7 @@ class manipulation_choice{
             this.background.style.filter = "blur(0px)"
             this.closeCard = true
         }
+
    }
 
    static show_card(){
@@ -40,6 +42,13 @@ class manipulation_choice{
                 this.card_name_player.innerText = manipulation_names.name_player01
             }
         },1000)
+   }
+
+   static clear_choices(){
+        document.addEventListener('DOMContentLoaded',()=>{
+            localStorage.removeItem('choice_player1')
+            localStorage.removeItem('choice_player2')
+        })
    }
 }
 
