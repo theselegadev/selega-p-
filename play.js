@@ -1,11 +1,15 @@
 class selega_po{
     static play(){
         manipulation_choice.clear_choices()
+        manipulation_result.clear()
         manipulation_choice.show_card()
         manipulation_choice.alter_names()
         manipulation_names.insert_names()
         manipulation_images.showImages("choice_player1")
         manipulation_images.showImages("choice_player2")
+    }
+    static verify_winner(){
+        manipulation_result.verify_result()
     }
 }
 
@@ -93,4 +97,59 @@ class manipulation_images{
     }
 }
 
+class manipulation_result{
+    static image = document.getElementById('image-winner')
+
+    static show_card(){
+        const card_winner = document.getElementById('card-winner')
+        
+        setTimeout(()=>{card_winner.style.top = "10%"},3500)
+    }
+
+    static clear(){
+        document.addEventListener('DOMContentLoaded',()=>{
+            manipulation_choice.closeCard = false
+        })
+    }
+
+    static verify_result(){
+        const place_winner = document.getElementById('place-winner')
+        
+        const myinterval = setInterval(()=>{
+            if(manipulation_choice.closeCard == true){
+                const choice_player1 = localStorage.getItem('choice_player1')
+                const choice_player2 = localStorage.getItem('choice_player2')
+
+                console.log(choice_player1,choice_player2)
+                
+                if(choice_player1 === choice_player2){
+                    place_winner.innerText = "Infelizmente empatou"
+                    manipulation_result.image.src = "./images/empatou.png"
+                }else if(choice_player1 == 'pedra' && choice_player2 == 'tesoura'){
+                    place_winner.innerText = `Parabéns ${manipulation_names.name_player01} você ganhou`
+                    manipulation_result.image.src = "./images/winners.png"
+                }else if(choice_player1 == 'pedra' && choice_player2 == 'papel'){
+                    place_winner.innerText = `Parabéns ${manipulation_names.name_player02} você ganhou`
+                    manipulation_result.image.src = "./images/winners.png"
+                }else if(choice_player1 == 'tesoura' && choice_player2 == 'papel'){
+                    place_winner.innerText = `Parabéns ${manipulation_names.name_player01} você ganhou`
+                    manipulation_result.image.src = "./images/winners.png"
+                }else if(choice_player1 == 'tesoura' && choice_player2 == 'pedra'){
+                    place_winner.innerHTML = `Parabéns ${manipulation_names.name_player02} você ganhou`
+                    manipulation_result.image.src = "./images/winners.png"
+                }else if(choice_player1 == 'papel' && choice_player2 == 'tesoura'){
+                    place_winner.innerText = `Parabéns ${manipulation_names.name_player02} você ganhou`
+                    manipulation_result.image.src = "./images/winners.png"
+                }else if(choice_player1 == 'papel' && choice_player2 == 'pedra'){
+                    place_winner.innerText = `Parabéns ${manipulation_names.name_player01} você ganhou`
+                    manipulation_result.image.src = "./images/winners.png"
+                }
+                manipulation_result.show_card()
+                clearInterval(myinterval)
+            }
+        },100)
+    }
+}
+
 selega_po.play()
+selega_po.verify_winner()
