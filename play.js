@@ -103,7 +103,13 @@ class manipulation_result{
     static show_card(){
         const card_winner = document.getElementById('card-winner')
         
-        setTimeout(()=>{card_winner.style.top = "10%"},3500)
+        setTimeout(()=>{
+            if(manipulation_screen.size_screen <=900){
+                card_winner.style.top = "20%"
+            }else{
+                card_winner.style.top = "10%"
+            }
+        },3500)
     }
 
     static clear(){
@@ -149,6 +155,10 @@ class manipulation_result{
             }
         },100)
     }
+}
+
+class manipulation_screen{
+    static size_screen = window.innerWidth
 }
 
 selega_po.play()

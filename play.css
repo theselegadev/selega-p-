@@ -43,7 +43,7 @@ header{
 .container-buttons{
     width: 100%;
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
 }
 .container-buttons .box-button button{
@@ -167,3 +167,38 @@ header{
         transform: rotate(0deg);
     }
 }
+ /*respondsividade */
+
+ @media(max-width:900px){
+    .card-choices{
+        width: 400px;
+        height: 530px;
+        top: 20%;
+    }
+    .card-choices .box-button{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .card-choices button{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding-left: 7px;
+        padding-right: 7px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    #image-choice-player1{
+        height: 200px;
+        width: 180px;
+    }
+    #image-choice-player2{
+        height: 200px;
+        width: 180px;
+    }
+    .card-winner{
+        width: 400px;
+    }
+ }

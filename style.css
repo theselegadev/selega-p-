@@ -189,3 +189,14 @@ label{
         transform: rotate(0deg);
     }
 }
+/* responsividade */
+
+@media(max-width:900px){
+    #player01,#player02{
+        width: 170px;
+    }
+    .card-rules{
+        width: 400px;
+        height: 200px;
+    }
+}
